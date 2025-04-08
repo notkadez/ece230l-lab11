@@ -6,5 +6,12 @@ module top(
 );
 
     // Hook up binary and one-hot state machines
+    binary_sm binary(
+        .w(sw),
+        .clk(btnC),
+        .reset(btnU),
+        .z(led[1]),
+        .state(led[9:7])
+    );
 
 endmodule

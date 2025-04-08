@@ -1,0 +1,120 @@
+$date
+	Tue Apr  8 15:05:03 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test $end
+$var wire 1 ! z_onehot $end
+$var wire 1 " z_binary $end
+$var wire 5 # onehot_actual [4:0] $end
+$var wire 3 $ binary_actual [2:0] $end
+$var reg 1 % clk $end
+$var reg 1 & reset $end
+$var reg 1 ' w $end
+$scope module uut $end
+$var wire 1 % btnC $end
+$var wire 1 & btnU $end
+$var wire 1 ' sw $end
+$var wire 10 ( led [9:0] $end
+$scope module binary $end
+$var wire 1 ) Y1 $end
+$var wire 1 * Y2 $end
+$var wire 1 + Y3 $end
+$var wire 1 % clk $end
+$var wire 1 & reset $end
+$var wire 1 ' w $end
+$var wire 1 , y3 $end
+$var wire 1 - y2 $end
+$var wire 1 . y1 $end
+$var reg 3 / state [2:0] $end
+$var reg 1 0 z $end
+$scope module dff1 $end
+$var wire 1 ) D $end
+$var wire 1 1 Default $end
+$var wire 1 % clk $end
+$var wire 1 & reset $end
+$var reg 1 . Q $end
+$upscope $end
+$scope module dff2 $end
+$var wire 1 * D $end
+$var wire 1 2 Default $end
+$var wire 1 % clk $end
+$var wire 1 & reset $end
+$var reg 1 - Q $end
+$upscope $end
+$scope module dff3 $end
+$var wire 1 + D $end
+$var wire 1 3 Default $end
+$var wire 1 % clk $end
+$var wire 1 & reset $end
+$var reg 1 , Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope task check_state $end
+$upscope $end
+$scope task check_state_bn $end
+$upscope $end
+$scope task check_state_oh $end
+$upscope $end
+$scope task do_reset $end
+$upscope $end
+$scope task next_state $end
+$upscope $end
+$scope task toggle_clock $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+03
+02
+01
+00
+b0 /
+0.
+0-
+0,
+0+
+0*
+1)
+b0zzzzz0z (
+0'
+x&
+0%
+b0 $
+bz #
+0"
+z!
+$end
+#1
+1&
+#2
+0&
+#3
+b1 $
+b1zzzzz0z (
+b1 /
+0)
+1*
+1.
+1%
+#4
+0%
+#5
+b10 $
+b10zzzzz0z (
+b10 /
+0)
+0.
+1-
+1%
+#6
+0%
