@@ -1,12 +1,7 @@
 module binary_sm (w, clk, reset, z, state);
     input w, clk, reset;
-    output reg [2:0] state;
-    output reg z;
-
-    initial begin
-        state = 0;
-        z = 0;
-    end
+    output z;
+    output [2:0] state;
 
     wire y1, y2, y3;
     wire Y1, Y2, Y3;
@@ -14,6 +9,10 @@ module binary_sm (w, clk, reset, z, state);
     assign Y3 = (w & y3) | (w & y2 & y1);
     assign Y2 = (y1 ^ y2) | (w & ~y3 & ~y2);
     assign Y1 = (~w & ~y1 & ~y2) | (~w & y1 & y2) | (w & ~y3 & ~y2) | (w & y2 & ~y1);
+    
+    assign z = y3 | (~y1 & y2);
+    
+    assign state = {y3, y2, y1};
 
     dff dff1 (
         .Default(1'b0),
@@ -39,16 +38,5 @@ module binary_sm (w, clk, reset, z, state);
         .Q(y3)
     );
 
-    always @(posedge clk, posedge reset) begin
-        if (reset) begin
-            state <= 0;
-        end 
-
-        z <= y3 | (~y1 & y2);
-    end
-
-    always @(y1, y2, y3) begin
-        state <= {y3, y2, y1};
-    end
     
 endmodule

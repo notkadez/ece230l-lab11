@@ -26,11 +26,11 @@ module test();
         begin
             if (z_onehot !== expected_z) begin
                 $display("FAILED OneHot Check. Expected output %b, found %b", expected_z, z_onehot);
-                // $finish;
+                $finish;
             end
             if (1 << expected_state !== onehot_actual) begin
                 $display("FAILED OneHot Check. Expected state %b, found %b", 1 << expected_state, onehot_actual);
-                // $finish;
+                $finish;
             end
         end
     endtask
@@ -39,18 +39,18 @@ module test();
         begin
             if (z_binary !== expected_z) begin
                 $display("FAILED Binary Check. Expected output %b, found %b", expected_z, z_binary);
-                // $finish;
+                $finish;
             end
             if (expected_state !== binary_actual) begin
                 $display("FAILED Binary Check. Expected state %b, found %b", expected_state, binary_actual);
-                // $finish;
+                $finish;
             end
         end
     endtask
 
     task automatic check_state(input [2:0] expected_state, input expected_z);
         begin
-            // check_state_oh(expected_state, expected_z);
+            check_state_oh(expected_state, expected_z);
             check_state_bn(expected_state, expected_z);
         end
     endtask
@@ -76,14 +76,6 @@ module test();
 
         do_reset;
         check_state('b000, 'b0);
-
-        next_state('b0);
-        check_state('b001, 'b0);
-
-        next_state('b0);
-        check_state('b010, 'b0);
-
-        $finish;
 
         next_state('b0);
         check_state('b001, 'b0);

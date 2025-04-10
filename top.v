@@ -13,5 +13,13 @@ module top(
         .z(led[1]),
         .state(led[9:7])
     );
+    
+    onehot oh(
+        .w(sw),
+        .clk(btnC),
+        .reset(btnU),
+        .z(led[0]),
+        .state({led[2], led[3], led[4], led[5], led[6]})
+    );
 
 endmodule
